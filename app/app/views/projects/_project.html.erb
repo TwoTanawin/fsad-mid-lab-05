@@ -1,0 +1,17 @@
+<div id="<%= dom_id project %>">
+  <p>
+    <strong>Name:</strong>
+    <%= project.name %>
+  </p>
+
+  <p>
+    <strong>Url:</strong>
+    <%= project.url %>
+  </p>
+
+  <p>
+    <strong>Student: </strong>
+    <%= project.students.map{|student| student.name}.join(',') %>
+  </p>
+
+</div>

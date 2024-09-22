@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @project %>
+
+<h2>Students</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Student ID</th>
+    <th>Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @project.students.each do |student| %>
+    <tr>
+      <td><%= student.studentid %></td>
+      <td><%= student.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br/>
+
+<h2>Add a student:</h2>
+<%= form_for([@project, @project.students.build]) do |f| %>
+  <div class="field">
+    <%= f.label :studentid %><br />
+    <%= f.text_field :studentid %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<br />
+
+<div>
+  <%= link_to "Edit this project", edit_project_path(@project) %> |
+  <%= link_to "Back to projects", projects_path %>
+
+  <%= button_to "Destroy this project", @project, method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
